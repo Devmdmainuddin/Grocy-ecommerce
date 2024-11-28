@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-
+import { RiMenu2Line } from "react-icons/ri";
+import { IoIosArrowDown } from "react-icons/io";
+import Container from "./Container";
 
 const Navbar = () => {
     return (
         <div>
-            <div className="tobar flex justify-between items-center p-6 bg-[#1D3D4D] text-white">
-                <Link href="#" className="announcement-bar__link link link--text focus-inset animate-arrow">
-                    <p className="announcement-bar__message">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
+            <Container>
+            <div className="tobar flex justify-center md:justify-between items-center p-6 bg-[#1D3D4D] text-white">
+                <Link href="#" className="hidden md:block">
+                    <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
                 </Link>
                 <div className="flex gap-6 items-center">
-                    <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="country_code" aria-labelledby="FooterCountryLabelNoScript">
+                    <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code" aria-labelledby="FooterCountryLabelNoScript">
                         <option value="FR" className="bg-white text-[#1D3D4D] ">
                             France (EUR €)
                         </option >
@@ -52,11 +55,11 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="">
-                <nav className="flex  items-center justify-between">
+                <nav className="flex  items-center justify-between border-b p-6 relative">
                     <div className="logo"><img src="/header-logo.jpeg" alt="logo" /></div>
-                    <div className="flex py-6">
-                        <input type="text" name="search" id="" placeholder="Search for items..." className="text-[#11506C] border-2 border-[#00B881] w-[608px] rounded-tl-full rounded-bl-full outline-0 px-6" />
-                        <label htmlFor="search" className=" bg-[#00B881] text-white rounded-tr-full rounded-br-full py-2.5 px-[20px]">search</label>
+                    <div className="flex  absolute top-full left-1/2 -translate-x-1/2 lg:translate-x-0 lg:static my-6 lg:my-0">
+                        <input type="text" name="Search" id="" placeholder="Search for items..." className="text-[#11506C] border-2 border-[#00B881] w-full md:w-[450px] lg:w-[528px] rounded-tl-full rounded-bl-full outline-0 px-6" />
+                        <label htmlFor="Search" className=" bg-[#00B881] text-white rounded-tr-full rounded-br-full py-2.5 px-[20px]">Search</label>
                     </div>
                     <div className="icons flex gap-6 items-center">
                         <div className="flex gap-3 items-center">
@@ -98,7 +101,7 @@ const Navbar = () => {
                         </div>
                         <div className="flex gap-3 items-center border-l pl-6">
 
-                            <svg viewBox="0 -31 512.00026 512" className="icon icon-contact text-[#11506C]" fill="currentColor" width="28px" height="28px"  xmlns="http://www.w3.org/2000/svg"><path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path><path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path><path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path></svg>
+                            <svg viewBox="0 -31 512.00026 512" className="icon icon-contact text-[#11506C]" fill="currentColor" width="28px" height="28px" xmlns="http://www.w3.org/2000/svg"><path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path><path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path><path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path></svg>
 
                             <div className="flex flex-col">
                                 <div className="relative">
@@ -114,6 +117,33 @@ const Navbar = () => {
                     </div>
                 </nav>
             </div>
+            <div className="hidden  py-3 px-6 lg:flex gap-6 items-center border-b">
+                <div className="flex justify-between items-center w-[240px] py-[9px] px-[17px] text-[#11506C] bg-[#EBF4F6] rounded-full">
+                    <span><RiMenu2Line /></span>
+                    <span className="text-[15px] font-semibold text-[#11506C]">Shop by Departments</span>
+                    <span className="flex items-center justify-center"><IoIosArrowDown /></span>
+                </div>
+                <ul className="flex gap-6 items-center">
+                    <li>
+                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Home</Link>
+                    </li>
+                    <li>
+                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Our Store</Link>
+                    </li>
+                    <li>
+                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Special</Link>
+                    </li>
+                    <li>
+                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Categories</Link>
+                    </li>
+                    <li>
+                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Top Deals</Link>
+                    </li>
+                </ul>
+
+            </div>
+            </Container>
+            
         </div>
     );
 };
