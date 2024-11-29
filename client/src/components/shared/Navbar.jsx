@@ -12,7 +12,7 @@ const Navbar = () => {
                     <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
                 </Link>
                 <div className="flex gap-6 items-center">
-                    <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code" aria-labelledby="FooterCountryLabelNoScript">
+                    <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code">
                         <option value="FR" className="bg-white text-[#1D3D4D] ">
                             France (EUR €)
                         </option >
@@ -29,13 +29,13 @@ const Navbar = () => {
                             Spain (EUR €)
                         </option>
 
-                        <option value="US" className="bg-white text-[#1D3D4D]" selected>
+                        <option value="US" className="bg-white text-[#1D3D4D]" >
                             United States (USD $)
                         </option>
                     </select>
 
-                    <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
-                        <option value="en" lang="en" className="bg-white text-[#1D3D4D] " selected>
+                    <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" >
+                        <option value="en" lang="en" className="bg-white text-[#1D3D4D] " >
                             English
                         </option>
                         <option value="ar" className="bg-white text-[#1D3D4D] " lang="ar">
