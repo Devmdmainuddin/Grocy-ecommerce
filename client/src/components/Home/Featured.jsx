@@ -1,4 +1,5 @@
 import ProductCard from "../Card/ProductCard";
+import ProductCard02 from "../Card/ProductCard02";
 import Container from "../shared/Container";
 
 
@@ -11,13 +12,13 @@ const Featured = () => {
         {title: "Amaranthus 1 Bunch (Approx 160 g - 1500 g)", price: 60, image: "/33.jpeg",thum:"/30.jpeg" },
     ]
     return (
-        <div>
+        <div className="mt-[130px]">
             <Container>
                 <div>
                     <h2 className="text-2xl leading-5 capitalize text-[#184363] text-center font-bold">Featured Collection</h2>
                 <div className="flex flex-wrap gap-6 mt-[50px]">
-                    {product.map((item,idx)=> <ProductCard key={idx} item={item}/>)}
- 
+                    {/* {product.map((item,idx)=> <ProductCard key={idx} item={item}/>)} */}
+                    {product.map((item,idx)=> <ProductCard02 key={idx} item={item}/>)}
                 </div>
                 </div>
             </Container>

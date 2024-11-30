@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner01 = () => {
     return (
-        <div className="w-full h-[200px] relative  overflow-hidden px-6 rounded-lg">
+        <div className="w-full h-[302px] relative  overflow-hidden px-6 rounded-lg">
         <img src='/sb.jpeg' alt='Banner 02' className='w-full h-full object-cover rounded-lg ' />
         <div className='content absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 max-w-[372px] flex flex-col items-center'>
             <h4 className="text-[#184363] text-[16px]">Up to 45% OFF</h4>
