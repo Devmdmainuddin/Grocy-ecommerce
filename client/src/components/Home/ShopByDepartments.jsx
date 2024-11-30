@@ -11,7 +11,7 @@ const ShopByDepartments = () => {
         { title: "Amaranthus 1 Bunch (Approx 160 g - 1500 g)", price: 60, image: "/33.jpeg", thum: "/30.jpeg" },
     ]
     return (
-        <div>
+        <div className="my-[120px]">
             <Container>
                 <div>
                     <h2 className="text-2xl leading-5 capitalize text-[#184363] text-center font-bold">Shop by Departments</h2>
