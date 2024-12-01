@@ -2,9 +2,9 @@
 
 const BlogCard = ({item}) => {
     return (
-        <div className="w-[400px]">
+        <div className="w-[400px] group overflow-hidden">
             <div className="image w-[400px] rounded-lg">
-                <img src={item?.image} alt="" className='w-full h-full object-cover' />
+                <img src={item?.image} alt="" className='w-full h-full object-cover group-hover:scale-105  transition-all duration-500' />
             </div>
             <div className="content">
                 <div>

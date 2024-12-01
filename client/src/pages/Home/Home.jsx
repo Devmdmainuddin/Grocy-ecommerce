@@ -7,6 +7,7 @@ import BestSelling from '../../components/Home/BestSelling';
 import Featured from '../../components/Home/Featured';
 import Hero from '../../components/Home/Hero';
 import LatestNews from '../../components/Home/LatestNews';
+import Newsletter from '../../components/Home/Newsletter';
 import ShopByDepartments from '../../components/Home/ShopByDepartments';
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             <BestSelling/>
             <Banner01/>
             <LatestNews/>
+            <Newsletter/>
         </div>
     );
 };
