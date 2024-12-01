@@ -1,5 +1,6 @@
 import { FaHeart, FaRegEye, FaStar } from "react-icons/fa";
 import { IoIosGitCompare } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 const ProductCard = ({ item }) => {
@@ -43,7 +44,7 @@ const ProductCard = ({ item }) => {
                  {discount && <p className="text-[15px] leading-5 capitalize text-red-600">$ <span>{price-(price * discount / 100)}</span></p>}   
                     </div>
                     
-                    <button className="w-full text-center text-[15px] font-bold leading-5 capitalize text-[#184363] py-2.5 px-5 bg-[#ECF4F6] rounded-[8px] mt-3 group-hover:bg-[#00B881] group-hover:text-white transition-all duration-500">Choose Options</button>
+                <Link to='/details'> <button className="w-full text-center text-[15px] font-bold leading-5 capitalize text-[#184363] py-2.5 px-5 bg-[#ECF4F6] rounded-[8px] mt-3 hover:bg-[#00B881] hover:text-white transition-all duration-500">Choose Options</button> </Link>   
                 </div>
             </div>
         </div>

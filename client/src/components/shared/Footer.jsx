@@ -100,7 +100,7 @@ const Footer = () => {
             </div>
             <div className="py-[22px] text-[#184363] border-t">
                 <Container>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between flex-wrap gap-6">
                         <p className=" font-dm-sans text-base font-normal leading-7">2022 © All rights reserved by devsnest-llc</p>
                         <div className="flex gap-3 items-center">
 
