@@ -4,15 +4,16 @@ import { useState } from 'react';
 import { CiHeart } from "react-icons/ci";
 import { IoGitCompareOutline } from 'react-icons/io5';
 import ProductCard from '../../components/Card/ProductCard';
-
+import { GrFormPrevious } from "react-icons/gr";
+import { MdNavigateNext } from "react-icons/md";
 const Details = () => {
     const [count, setCount] = useState(1)
-    const product =[
-        {title: "Heinz Baby Puree with Peach, Mango, Banana", price: 20, image: "/19.jpeg", thum:"/30.jpeg" },
-        {title: "Cucumber 500 g (Approx. 200 g - 2500 g)", price: 30, image: "/30.jpeg",thum:"/29.jpeg" },
-        {title: "Potato per kg (Approx. 950 g - 1000 g)", price: 40, image: "/29.jpeg",thum:"/30.jpeg" },
-        {title: "Milky Mist Mango Fruit Yogurt 100 g (Cup)", price: 50, image: "/02.jpeg",thum:"/19.jpeg" },
-        {title: "Amaranthus 1 Bunch (Approx 160 g - 1500 g)", price: 60, image: "/33.jpeg",thum:"/30.jpeg" },
+    const product = [
+        { title: "Heinz Baby Puree with Peach, Mango, Banana", price: 20, image: "/19.jpeg", thum: "/30.jpeg" },
+        { title: "Cucumber 500 g (Approx. 200 g - 2500 g)", price: 30, image: "/30.jpeg", thum: "/29.jpeg" },
+        { title: "Potato per kg (Approx. 950 g - 1000 g)", price: 40, image: "/29.jpeg", thum: "/30.jpeg" },
+        { title: "Milky Mist Mango Fruit Yogurt 100 g (Cup)", price: 50, image: "/02.jpeg", thum: "/19.jpeg" },
+        { title: "Amaranthus 1 Bunch (Approx 160 g - 1500 g)", price: 60, image: "/33.jpeg", thum: "/30.jpeg" },
     ]
     return (
         <div className='mt-[50px]'>
@@ -148,11 +149,142 @@ const Details = () => {
                     </div>
                 </div>
                 <div className='mt-[76px]'>
+                    <h2 className='text-2xl text-[#184363] font-bold'>Description</h2>
+                    <div className='mt-[30px] text-[#184363]'>
+                        <h2 className='text-xl font-bold'>The Divers</h2>
+                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don{`'`}t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn{`'`}t anything embarrassing hidden in the middle of text. </p>
+                   
+                        <h2 className='text-xl font-bold mt-6'>History</h2>
+                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don{`'`}t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn{`'`}t anything embarrassing hidden in the middle of text. </p>
+                   
+                        <h2 className='text-xl font-bold mt-6'>Features</h2>
+                        <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don{`'`}t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn{`'`}t anything embarrassing hidden in the middle of text. </p>
+                   
+                    </div>
+                </div>
+
+
+                {/* Review */}
+                <div className='mt-[76px] flex justify-between'>
+                    <h2 className='text-2xl text-[#184363] font-bold'>Review</h2>
+
+                    <div className='flex gap-2'>
+                        <select name="" id="" className='border rounded-md text-[#184363] py-2 px-3 outline-0'>
+                            <option value="Recent">Recent</option>
+                            <option value="Old">Old</option>
+                        </select>
+
+                        <select name="" id="" className='border rounded-md text-[#184363] py-2 px-3 outline-0'>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="9">9</option>
+                            <option value="12">12</option>
+                            <option value="15">15</option>
+                            <option value="18">18</option>
+                        </select>
+                    </div>
+                    <div>
+                        <ul className='flex gap-2 text-[#184363]'>
+                            <li className='p-2 border rounded-md flex justify-center items-center hover:text-white hover:bg-[#00B881] transition-all duration-500'><GrFormPrevious /></li>
+                            <li className='p-2 border rounded-md hover:text-white hover:bg-[#00B881] transition-all duration-500'>1</li>
+                            <li className='p-2 border rounded-md hover:text-white hover:bg-[#00B881] transition-all duration-500'>2</li>
+                            <li className='p-2 border rounded-md flex justify-center items-center hover:text-white hover:bg-[#00B881] transition-all duration-500'><MdNavigateNext /></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div className='flex gap-2 justify-between mt-[50px]'>
+                    <div className='flex gap-6 flex-col w-full md:w-1/2'>
+                        <div className='p-3 border rounded-md '>
+                            <div className='flex justify-between '>
+                                <div className="flex gap-1 text-[#FABF46] my-3 items-center">
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                </div>
+                                <span className='text-[#184363]'>07/04/2024</span>
+
+                            </div>
+                            <div className='flex gap-3'>
+                                <img src="" alt="" className='w-8 h-8 rounded-full bg-[#184363]' />
+                                <h2 className='text-xl text-[#184363] font-bold'>Sayan</h2>
+                            </div>
+                            <p className='mt-2 text-[#2828288] capitalize'>Best material and good quality.</p>
+
+                        </div>
+                        <div className='p-3 border rounded-md '>
+                            <div className='flex justify-between '>
+                                <div className="flex gap-1 text-[#FABF46] my-3 items-center">
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                </div>
+                                <span className='text-[#184363]'>07/04/2024</span>
+
+                            </div>
+                            <div className='flex gap-3'>
+                                <img src="" alt="" className='w-8 h-8 rounded-full bg-[#184363]' />
+                                <h2 className='text-xl text-[#184363] font-bold'>Sayan</h2>
+                            </div>
+                            <p className='mt-2 text-[#2828288] capitalize'>Best material and good quality.</p>
+
+                        </div>
+                        <div className='p-3 border rounded-md '>
+                            <div className='flex justify-between '>
+                                <div className="flex gap-1 text-[#FABF46] my-3 items-center">
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                    <span><FaStar className="text-[11px]" /></span>
+                                </div>
+                                <span className='text-[#184363]'>07/04/2024</span>
+
+                            </div>
+                            <div className='flex gap-3'>
+                                <img src="" alt="" className='w-8 h-8 rounded-full bg-[#184363]' />
+                                <h2 className='text-xl text-[#184363] font-bold'>Sayan</h2>
+                            </div>
+                            <p className='mt-2 text-[#2828288] capitalize'>Best material and good quality.</p>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h2 className='capitalize text-[#184363] text-xl'>write a review</h2>
+                        <form action="">
+                            <div className='mt-3 flex gap-6'>
+                                <input type="text" id="" required placeholder='Enter Your Name' className=' py-2 px-3 border rounded-md text-[#184363] outline-0' />
+                                <input type="email" id="" required placeholder='Enter Your Email' className=' py-2 px-3 border rounded-md text-[#184363] outline-0' />
+
+                            </div>
+
+                            <div className='flex items-center justify-between gap-3 border rounded-md text-[#184363] py-2 px-3 mt-3'>
+
+                                <select id="" required className='w-full  text-[#184363] py-2 px-3 outline-0'>
+                                    <option value="">Rating</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                </select>
+                            </div>
+                            <textarea id="" required className='w-full py-2 px-3 mt-3 border rounded-md text-[#184363] outline-0 h-[120px] resize-none'>Your Comment Here</textarea>
+                            <button className='py-2 px-4 text-white bg-[#00B881] hover:bg-[#184363] rounded-md inline-block capitalize transition-all duration-500 mt-6'>Submit</button>
+                        </form>
+                    </div>
+                </div>
+                {/* relative product */}
+                <div className='mt-[76px]'>
                     <h2 className='text-2xl text-[#184363] font-bold'>You may also like</h2>
                     <div className="flex flex-wrap gap-6 mt-[50px]">
-                    {/* {product.map((item,idx)=> <ProductCard key={idx} item={item}/>)} */}
-                    {product.map((item,idx)=> <ProductCard key={idx} item={item}/>)}
-                </div>
+                        {/* {product.map((item,idx)=> <ProductCard key={idx} item={item}/>)} */}
+                        {product.map((item, idx) => <ProductCard key={idx} item={item} />)}
+                    </div>
                 </div>
             </Container>
         </div>
