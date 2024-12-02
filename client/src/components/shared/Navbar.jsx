@@ -2,75 +2,78 @@ import { Link } from "react-router-dom";
 import { RiMenu2Line } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 import Container from "./Container";
+import { useState } from "react";
+import { MdClose } from "react-icons/md";
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <div>
             <Container>
-            <div className="tobar flex justify-center md:justify-between items-center p-6 bg-[#1D3D4D] text-white">
-                <Link href="#" className="hidden md:block">
-                    <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
-                </Link>
-                <div className="flex gap-6 items-center">
-                    <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code">
-                        <option value="FR" className="bg-white text-[#1D3D4D] ">
-                            France (EUR €)
-                        </option >
-                        <option value="RO" className="bg-white text-[#1D3D4D] ">
-                            Romania (RON Lei)
-                        </option>
-                        <option value="RU" className="bg-white text-[#1D3D4D] ">
-                            Russia (RUB ₽)
-                        </option>
-                        <option value="SA" className="bg-white text-[#1D3D4D]">
-                            Saudi Arabia (SAR ر.س)
-                        </option>
-                        <option value="ES" className="bg-white text-[#1D3D4D]">
-                            Spain (EUR €)
-                        </option>
+                <div className="tobar flex justify-center md:justify-between items-center p-6 bg-[#1D3D4D] text-white">
+                    <Link href="#" className="hidden md:block">
+                        <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
+                    </Link>
+                    <div className="flex gap-6 items-center">
+                        <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code">
+                            <option value="FR" className="bg-white text-[#1D3D4D] ">
+                                France (EUR €)
+                            </option >
+                            <option value="RO" className="bg-white text-[#1D3D4D] ">
+                                Romania (RON Lei)
+                            </option>
+                            <option value="RU" className="bg-white text-[#1D3D4D] ">
+                                Russia (RUB ₽)
+                            </option>
+                            <option value="SA" className="bg-white text-[#1D3D4D]">
+                                Saudi Arabia (SAR ر.س)
+                            </option>
+                            <option value="ES" className="bg-white text-[#1D3D4D]">
+                                Spain (EUR €)
+                            </option>
 
-                        <option value="US" className="bg-white text-[#1D3D4D]" >
-                            United States (USD $)
-                        </option>
-                    </select>
+                            <option value="US" className="bg-white text-[#1D3D4D]" >
+                                United States (USD $)
+                            </option>
+                        </select>
 
-                    <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" >
-                        <option value="en" lang="en" className="bg-white text-[#1D3D4D] " >
-                            English
-                        </option>
-                        <option value="ar" className="bg-white text-[#1D3D4D] " lang="ar">
-                            العربية
-                        </option>
-                        <option value="fr" lang="fr" className="bg-white text-[#1D3D4D] ">
-                            Français
-                        </option><option value="es" lang="es" className="bg-white text-[#1D3D4D] ">
-                            Español
-                        </option><option value="ru" lang="ru" className="bg-white text-[#1D3D4D] ">
-                            Русский
-                        </option><option value="ro" lang="ro" className="bg-white text-[#1D3D4D] ">
-                            Română
-                        </option>
-                    </select>
-                    <p><span className="title">My Account</span></p>
-                </div>
-            </div>
-            <div className="">
-                <nav className="flex  items-center justify-between border-b p-6 relative">
-                    <div className="logo"><img src="/header-logo.jpeg" alt="logo" /></div>
-                    <div className="flex  absolute top-full left-1/2 -translate-x-1/2 lg:translate-x-0 lg:static my-6 lg:my-0">
-                        <input type="text" name="Search" id="" placeholder="Search for items..." className="text-[#11506C] border-2 border-[#00B881] w-full md:w-[450px] lg:w-[528px] rounded-tl-full rounded-bl-full outline-0 px-6" />
-                        <label htmlFor="Search" className=" bg-[#00B881] text-white rounded-tr-full rounded-br-full py-2.5 px-[20px]">Search</label>
+                        <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" >
+                            <option value="en" lang="en" className="bg-white text-[#1D3D4D] " >
+                                English
+                            </option>
+                            <option value="ar" className="bg-white text-[#1D3D4D] " lang="ar">
+                                العربية
+                            </option>
+                            <option value="fr" lang="fr" className="bg-white text-[#1D3D4D] ">
+                                Français
+                            </option><option value="es" lang="es" className="bg-white text-[#1D3D4D] ">
+                                Español
+                            </option><option value="ru" lang="ru" className="bg-white text-[#1D3D4D] ">
+                                Русский
+                            </option><option value="ro" lang="ro" className="bg-white text-[#1D3D4D] ">
+                                Română
+                            </option>
+                        </select>
+                        <p><span className="title">My Account</span></p>
                     </div>
-                    <div className="icons flex gap-6 items-center">
-                        <div className="flex gap-3 items-center">
+                </div>
+                <div className="">
+                    <nav className="flex  items-center justify-between border-b p-6 relative">
+                        <div className="logo"><img src="/header-logo.jpeg" alt="logo" /></div>
+                        <div className="flex  absolute top-full left-1/2 -translate-x-1/2 lg:translate-x-0 lg:static my-6 lg:my-0">
+                            <input type="text" name="Search" id="" placeholder="Search for items..." className="text-[#11506C] border-2 border-[#00B881] w-full md:w-[450px] lg:w-[528px] rounded-tl-full rounded-bl-full outline-0 px-6" />
+                            <label htmlFor="Search" className=" bg-[#00B881] text-white rounded-tr-full rounded-br-full py-2.5 px-[20px]">Search</label>
+                        </div>
+                        <div className="icons flex gap-6 items-center">
+                            <div className="flex gap-3 items-center">
 
-                            <svg className="icon icon-contact text-[#11506C]" fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512.000000 512.000000"><title>phone</title>
-                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
-                                    <path d="M2771 5102 c-95 -48 -106 -182 -21 -244 14 -10 77 -29 140 -43 490
+                                <svg className="icon icon-contact text-[#11506C]" fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512.000000 512.000000"><title>phone</title>
+                                    <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                                        <path d="M2771 5102 c-95 -48 -106 -182 -21 -244 14 -10 77 -29 140 -43 490
         -107 881 -317 1229 -658 352 -346 584 -764 686 -1237 30 -138 44 -172 79 -195
         67 -44 142 -36 194 19 27 30 32 43 32 86 0 93 -71 370 -141 551 -135 349 -343
         673 -608 942 -387 396 -860 656 -1401 772 -137 30 -145 30 -189 7z"></path>
-                                    <path d="M845 4800 c-75 -24 -124 -51 -196 -107 -75 -58 -457 -455 -507 -527
+                                        <path d="M845 4800 c-75 -24 -124 -51 -196 -107 -75 -58 -457 -455 -507 -527
         -92 -131 -133 -282 -132 -491 0 -268 67 -537 223 -895 97 -225 197 -408 345
         -635 511 -784 1214 -1421 2008 -1818 440 -220 772 -318 1084 -321 170 -1 258
         18 400 86 l105 50 256 257 c200 199 265 271 297 326 59 101 75 167 70 284 -3
@@ -87,63 +90,113 @@ const Navbar = () => {
         -25 -395 79 -930 342 -1391 684 -817 607 -1492 1541 -1696 2350 -25 96 -32
         149 -36 265 -11 290 3 318 315 632 143 145 252 246 276 258 49 24 113 26 164
         5z"></path>
-                                    <path d="M2730 4173 c-91 -47 -107 -168 -31 -237 11 -10 77 -33 150 -52 284
+                                        <path d="M2730 4173 c-91 -47 -107 -168 -31 -237 11 -10 77 -33 150 -52 284
         -72 491 -192 688 -398 180 -188 290 -396 355 -671 17 -72 27 -96 53 -122 81
         -81 223 -35 242 80 6 42 -42 245 -88 362 -191 497 -626 888 -1136 1020 -138
         36 -190 40 -233 18z"></path>
-                                </g>
-                            </svg>
+                                    </g>
+                                </svg>
 
-                            <div className="flex flex-col">
-                                <p className="text-[#11506C] text-[13px]">Need Help?</p>
-                                <p className="text-[#11506C] text-[16px] font-semibold">+01 123 456 789</p>
-                            </div>
-                        </div>
-                        <div className="flex gap-3 items-center border-l pl-6">
-
-                            <svg viewBox="0 -31 512.00026 512" className="icon icon-contact text-[#11506C]" fill="currentColor" width="28px" height="28px" xmlns="http://www.w3.org/2000/svg"><path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path><path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path><path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path></svg>
-
-                            <div className="flex flex-col">
-                                <div className="relative">
-                                    <span className="text-[#11506C] text-[13px]">Cart </span>
-                                    <div className="absolute top-0 -right-3 rounded-full p-1 bg-[#00B881] text-white  w-6 h-6 flex justify-center items-center">0</div>
+                                <div className="flex flex-col">
+                                    <p className="text-[#11506C] text-[13px]">Need Help?</p>
+                                    <p className="text-[#11506C] text-[16px] font-semibold">+01 123 456 789</p>
                                 </div>
-                                <span className="text-[#11506C] text-[16px] font-semibold">$0.00</span>
+                            </div>
+                            <div onClick={() => setIsOpen(!isOpen)} className="flex gap-3 items-center border-l pl-6">
+
+                                <svg viewBox="0 -31 512.00026 512" className="icon icon-contact text-[#11506C]" fill="currentColor" width="28px" height="28px" xmlns="http://www.w3.org/2000/svg"><path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"></path><path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path><path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"></path></svg>
+
+                                <div className="flex flex-col">
+                                    <div className="relative">
+                                        <span className="text-[#11506C] text-[13px]">Cart </span>
+                                        <div className="absolute top-0 -right-3 rounded-full p-1 bg-[#00B881] text-white  w-6 h-6 flex justify-center items-center">0</div>
+                                    </div>
+                                    <span className="text-[#11506C] text-[16px] font-semibold">$0.00</span>
+                                </div>
+
                             </div>
 
+
+                        </div>
+                    </nav>
+                </div>
+                <div className="hidden  py-3 px-6 lg:flex gap-6 items-center border-b">
+                    <div className="flex justify-between items-center w-[240px] py-[9px] px-[17px] text-[#11506C] bg-[#EBF4F6] rounded-full">
+                        <span><RiMenu2Line /></span>
+                        <span className="text-[15px] font-semibold text-[#11506C]">Shop by Departments</span>
+                        <span className="flex items-center justify-center"><IoIosArrowDown /></span>
+                    </div>
+                    <ul className="flex gap-6 items-center">
+                        <li>
+                            <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Home</Link>
+                        </li>
+                        <li>
+                            <Link to='/store' className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Our Store</Link>
+                        </li>
+                        <li>
+                            <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Special</Link>
+                        </li>
+                        <li>
+                            <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Categories</Link>
+                        </li>
+                        <li>
+                            <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Top Deals</Link>
+                        </li>
+                    </ul>
+
+                </div>
+                {/* {isOpen && <div className="w-full min-h-screen  bg-[#3333336e] fixed   top-0 left-0 z-20">
+                   
+                   
+                </div>}
+                {isOpen && <div className={`w-[276px] h-screen p-6 bg-[#ECF4F6] fixed top-0  z-30 right-0 transition-all duration-500  `}>
+                    <div className="my-4 flex justify-between items-center">
+                    <h2>cart</h2>
+                        <span onClick={()=>setIsOpen(false)}><MdClose /></span>
+                    </div>
+                   
+                    </div>} */}
+
+                {/* Overlay */}
+                {isOpen && (
+                    <div
+                        className="w-full min-h-screen bg-[#3333336e] fixed top-0 left-0 z-20 transition-opacity duration-500"
+                    // onClick={() => setIsOpen(false)}
+                    ></div>
+                )}
+
+                {/* Sidebar */}
+                <div
+                    className={`w-[276px] h-screen p-6 bg-[#ECF4F6] fixed top-0 z-30 right-0 transition-transform duration-500 ${isOpen ? "translate-x-0" : "translate-x-full"
+                        }`}
+                >
+                    <div className="my-4 flex justify-between items-center">
+                        <h2>Cart</h2>
+                        <span onClick={() => setIsOpen(false)} className="cursor-pointer">
+                            <MdClose />
+                        </span>
+                    </div>
+                    {/* Sidebar Content */}
+                    <div className="flex gap-2 border p-2">
+                        <div>
+                            <div className="image w-10 h-10 ">
+                                <img src="/14.jpeg" alt="" className="w-full h-full object-cover" />
+                            </div>
                         </div>
 
-
+                        <div className="content flex justify-between items-center ">
+                            <div>
+                                <h2>Heinz Baby Puree with Peach, Mango, Banana</h2>
+                                <p>price: $50</p>
+                            </div>
+                            <span> <MdClose className="text-xl text-red-500" /></span>
+                        </div>
                     </div>
-                </nav>
-            </div>
-            <div className="hidden  py-3 px-6 lg:flex gap-6 items-center border-b">
-                <div className="flex justify-between items-center w-[240px] py-[9px] px-[17px] text-[#11506C] bg-[#EBF4F6] rounded-full">
-                    <span><RiMenu2Line /></span>
-                    <span className="text-[15px] font-semibold text-[#11506C]">Shop by Departments</span>
-                    <span className="flex items-center justify-center"><IoIosArrowDown /></span>
                 </div>
-                <ul className="flex gap-6 items-center">
-                    <li>
-                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/store' className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Our Store</Link>
-                    </li>
-                    <li>
-                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Special</Link>
-                    </li>
-                    <li>
-                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Categories</Link>
-                    </li>
-                    <li>
-                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Top Deals</Link>
-                    </li>
-                </ul>
 
-            </div>
+
             </Container>
-            
+
         </div>
     );
 };
