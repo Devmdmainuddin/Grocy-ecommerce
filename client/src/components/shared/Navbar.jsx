@@ -128,7 +128,7 @@ const Navbar = () => {
                         <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Home</Link>
                     </li>
                     <li>
-                        <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Our Store</Link>
+                        <Link to='/store' className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Our Store</Link>
                     </li>
                     <li>
                         <Link className="text-[#11506C] text-[16px] font-bold hover:text-[#00B881] transition-all duration-500">Special</Link>
