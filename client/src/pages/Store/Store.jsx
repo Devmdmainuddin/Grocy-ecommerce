@@ -79,7 +79,7 @@ const Store = () => {
 
     // ......................................
     return (
-        <div>
+        <div className="mt-[100px] lg:mt-0">
             <BredCumb />
             <Container>
                 <div className="flex gap-6  my-[50px] flex-wrap">
