@@ -20,7 +20,9 @@ const Home = () => {
             <BestSelling/>
             <Banner01/>
             <LatestNews/>
-            <Newsletter/>
+            <div className='bg-[#184363] text-white '>
+            <Newsletter />
+            </div>
         </div>
     );
 };

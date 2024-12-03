@@ -2,12 +2,15 @@ import { useState } from "react";
 import Container from "../../components/shared/Container";
 import { MdClose } from "react-icons/md";
 
+import Newsletter from "../../components/Home/Newsletter";
+import Brand from "../../components/Home/Brand";
+
 const Cart = () => {
     const [count, setCount] = useState(1)
     return (
         <div>
             <Container>
-                <h2>cart page</h2>
+                
                 <div>
                     <table className='min-w-full leading-normal my-[50px]'>
                         <thead>
@@ -126,8 +129,24 @@ const Cart = () => {
                             </tr>
                         </tbody>
                     </table>
+                    <div className="flex justify-between">
+                        <div>
+                        <button  className=" text-center text-[15px] font-bold leading-5 capitalize hover:bg-[#184363] py-2.5 px-[22px]  rounded-full  bg-[#00B881] text-white transition-all duration-500">Continue Shopping</button>
+                        </div>
+                   
+                    <div>
+                        <h2 className="text-xl font-bold text-[#184363]">SubTotal : <span className="font-normal">$50.00 USD</span></h2>
+                        <p className="text-sm mt-2 text-[#184363]">Taxes and shipping calculated at checkout</p>
+                    <button  className=" text-center text-[15px] font-bold leading-5 capitalize hover:bg-[#184363] py-2.5 px-[22px]  rounded-full  bg-[#00B881] text-white transition-all duration-500 mt-6">Check Out</button>
+                    </div>
+                    </div>
                 </div>
             </Container>
+            <div className='bg-[#ECF4F6] text-[#184363] '>
+            <Newsletter />
+            </div>
+           
+            <Brand/>
         </div>
     );
 };
