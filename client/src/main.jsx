@@ -8,6 +8,8 @@ import Details from './pages/Details/Details.jsx';
 import Store from './pages/Store/Store.jsx';
 import Cart from './pages/Cart/Cart.jsx';
 import CheckOut from './pages/CheckOut/CheckOut.jsx';
+import Login from './pages/Auth/Login.jsx';
+import Register from './pages/Auth/Register.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +21,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/store" element={<Store />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkOut" element={<CheckOut />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
