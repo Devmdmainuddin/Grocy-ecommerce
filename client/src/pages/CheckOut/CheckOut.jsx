@@ -75,7 +75,7 @@ const CheckOut = () => {
                         <button className="py-2.5 px-[20px] text-white bg-[#00B881] mt-4">play now </button>
 
                     </div>
-                    <div className="bg-[#F5F5F5] p-6 flex-1">
+                    <div className="bg-[#F5F5F5] p-6 flex-1 ">
                         <div className="flex gap-5 ">
                             <div className="image w-[62px] h-[62px] border rounded-sm relative">
                                 <img src="" alt="" />
@@ -90,6 +90,36 @@ const CheckOut = () => {
                                 <p><span className="text-[#184363]">$60.00</span> </p>
                             </div>
 
+                        </div>
+                        <div className="flex gap-5 mt-6">
+                            <div className="image w-[62px] h-[62px] border rounded-sm relative">
+                                <img src="" alt="" />
+                                <span className="w-[22px] h-p22px] rounded-full bg-[#184363] absolute -top-[11px] -right-[11px] text-white flex justify-center items-center">1</span>
+                            </div>
+                            <div className="content flex justify-between flex-1">
+                                <div>
+                                    <h2>  Amaranthus 1 Bunch (Approx 160 g - 1500 g) </h2>
+                                    <p>500gm </p>
+                                </div>
+
+                                <p><span className="text-[#184363]">$60.00</span> </p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <div className="flex items-center justify-between mt-4">
+                                <p>SubTotal <span> </span> items</p>
+                                <span>$50.00</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-4">
+                                <p>shipping <span> </span> </p>
+                                <input type="text" name="" id="" placeholder="Enter shipping address" className="border-0 outline-0 bg-transparent"/>
+                            </div>
+                            <div className="flex items-center justify-between mt-4">
+                            <h2 className=" text-2xl text-center text-[#282828]">Total: </h2>
+                                <span className=" text-2xl text-center text-[#282828]">$120.00</span>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
