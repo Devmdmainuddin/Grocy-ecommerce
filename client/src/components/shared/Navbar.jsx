@@ -8,6 +8,7 @@ import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [accOpen, setAccOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false)
     const [catOpen, setOpen] = useState(false);
     const [count, setCount] = useState(1)
@@ -37,59 +38,66 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="py-6 bg-[#1D3D4D]">
+            <div className="py-6 bg-[#1D3D4D]  ">
                 <Container>
-                <div className="tobar flex justify-center md:justify-between items-center  text-white">
-                <Link href="#" className="hidden md:block">
-                    <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
-                </Link>
-                <div className="flex gap-3 items-center">
-                    <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code">
-                        <option value="FR" className="bg-white text-[#1D3D4D] ">
-                            France (EUR €)
-                        </option >
-                        <option value="RO" className="bg-white text-[#1D3D4D] ">
-                            Romania (RON Lei)
-                        </option>
-                        <option value="RU" className="bg-white text-[#1D3D4D] ">
-                            Russia (RUB ₽)
-                        </option>
-                        <option value="SA" className="bg-white text-[#1D3D4D]">
-                            Saudi Arabia (SAR ر.س)
-                        </option>
-                        <option value="ES" className="bg-white text-[#1D3D4D]">
-                            Spain (EUR €)
-                        </option>
+                    <div className="tobar flex justify-center md:justify-between items-center  text-white ">
+                        <Link href="#" className="hidden md:block">
+                            <p className="">Save up to 20% on all Toys &amp; Accessories with “FLAT26OFF” code</p>
+                        </Link>
+                        <div className="flex gap-3 items-center relative ">
+                            <select className=" bg-[#1D3D4D] text-white outline-0 " name="country_code">
+                                <option value="FR" className="bg-white text-[#1D3D4D] ">
+                                    France (EUR €)
+                                </option >
+                                <option value="RO" className="bg-white text-[#1D3D4D] ">
+                                    Romania (RON Lei)
+                                </option>
+                                <option value="RU" className="bg-white text-[#1D3D4D] ">
+                                    Russia (RUB ₽)
+                                </option>
+                                <option value="SA" className="bg-white text-[#1D3D4D]">
+                                    Saudi Arabia (SAR ر.س)
+                                </option>
+                                <option value="ES" className="bg-white text-[#1D3D4D]">
+                                    Spain (EUR €)
+                                </option>
 
-                        <option value="US" className="bg-white text-[#1D3D4D]" >
-                            United States (USD $)
-                        </option>
-                    </select>
+                                <option value="US" className="bg-white text-[#1D3D4D]" >
+                                    United States (USD $)
+                                </option>
+                            </select>
 
-                    <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" >
-                        <option value="en" lang="en" className="bg-white text-[#1D3D4D] " >
-                            English
-                        </option>
-                        <option value="ar" className="bg-white text-[#1D3D4D] " lang="ar">
-                            العربية
-                        </option>
-                        <option value="fr" lang="fr" className="bg-white text-[#1D3D4D] ">
-                            Français
-                        </option><option value="es" lang="es" className="bg-white text-[#1D3D4D] ">
-                            Español
-                        </option><option value="ru" lang="ru" className="bg-white text-[#1D3D4D] ">
-                            Русский
-                        </option><option value="ro" lang="ro" className="bg-white text-[#1D3D4D] ">
-                            Română
-                        </option>
-                    </select>
-                    <p><span className="title">My Account</span></p>
-                </div>
-            </div>
+                            <select className="localization-selector bg-[#1D3D4D] text-white outline-0 " name="locale_code" >
+                                <option value="en" lang="en" className="bg-white text-[#1D3D4D] " >
+                                    English
+                                </option>
+                                <option value="ar" className="bg-white text-[#1D3D4D] " lang="ar">
+                                    العربية
+                                </option>
+                                <option value="fr" lang="fr" className="bg-white text-[#1D3D4D] ">
+                                    Français
+                                </option><option value="es" lang="es" className="bg-white text-[#1D3D4D] ">
+                                    Español
+                                </option><option value="ru" lang="ru" className="bg-white text-[#1D3D4D] ">
+                                    Русский
+                                </option><option value="ro" lang="ro" className="bg-white text-[#1D3D4D] ">
+                                    Română
+                                </option>
+                            </select>
+                            <p className=" " onClick={() => setAccOpen(!accOpen)}><span className="title">My Account</span>
+                            
+                            </p>
+                            <div className={`w-[260px] z-20 bg-white text-[#1D3D4D] border rounded-sm absolute flex justify-between gap-3 right-0 p-3 transition-all duration-500 ${accOpen ? '-bottom-[100px] visible opacity-100 ' : ' bottom-[92px] invisible opacity-0'}`}>
+                             <Link to='/login'><button className="py-3 px-6 border rounded-lg">login</button> </Link>   
+                             <Link to=''>  <button className="py-3  px-6 border rounded-lg">my account </button></Link>  
+                            </div>
+                        </div>
+
+                    </div>
                 </Container>
             </div>
 
-            
+
             <Container>
                 <div className="">
                     <nav className="flex  items-center justify-between border-b py-6 relative">
@@ -308,27 +316,27 @@ const Navbar = () => {
                     className={`w-[300px]  h-screen bg-white fixed top-0 left-0 z-30 transition-transform duration-500 flex flex-col items-stretch justify-between gap-6 ${menuOpen ? "translate-x-0 " : "-translate-x-full"
                         }`}
                 >
-                 
-                        <div className=" flex justify-between items-center bg-[#00B881] text-white p-3">
-                            <h2>Menu</h2>
-                            <span onClick={() => setMenuOpen(false)} className="cursor-pointer">
-                                <MdClose />
-                            </span>
-                        </div>
 
-                        <ul className="mt-4 px-6">
-                            <li className="py-2 border-b hover:text-[#00B881] transition-all duration-500">Home</li>
-                            <li className="py-2 border-b hover:text-[#00B881]">About</li>
-                            <li className="py-2 border-b hover:text-[#00B881]">Services</li>
-                            <li className="py-2 border-b hover:text-[#00B881]">Contact</li>
-                        </ul>
-                        <div className="bg-[#EBF4F6] text-[#184363] font-bold  space-y-4">
-                            <div className="flex gap-4 items-center justify-center p-6">
-                                <button onClick={handleCartLink} className=" text-center text-[15px] font-bold leading-5 capitalize hover:bg-[#184363] py-2.5 px-[22px]  rounded-sm  bg-[#00B881] text-white transition-all duration-500">View Cart</button>
-                                <button onClick={handleCheckOutLink} className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white rounded-sm  hover:bg-[#00B881]  transition-all duration-500">Check Out </button>
-                            </div>
+                    <div className=" flex justify-between items-center bg-[#00B881] text-white p-3">
+                        <h2>Menu</h2>
+                        <span onClick={() => setMenuOpen(false)} className="cursor-pointer">
+                            <MdClose />
+                        </span>
+                    </div>
+
+                    <ul className="mt-4 px-6">
+                        <li className="py-2 border-b hover:text-[#00B881] transition-all duration-500">Home</li>
+                        <li className="py-2 border-b hover:text-[#00B881]">About</li>
+                        <li className="py-2 border-b hover:text-[#00B881]">Services</li>
+                        <li className="py-2 border-b hover:text-[#00B881]">Contact</li>
+                    </ul>
+                    <div className="bg-[#EBF4F6] text-[#184363] font-bold  space-y-4">
+                        <div className="flex gap-4 items-center justify-center p-6">
+                            <button onClick={handleCartLink} className=" text-center text-[15px] font-bold leading-5 capitalize hover:bg-[#184363] py-2.5 px-[22px]  rounded-sm  bg-[#00B881] text-white transition-all duration-500">View Cart</button>
+                            <button onClick={handleCheckOutLink} className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white rounded-sm  hover:bg-[#00B881]  transition-all duration-500">Check Out </button>
                         </div>
-                   
+                    </div>
+
                 </div>
 
             </Container>
