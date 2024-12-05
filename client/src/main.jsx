@@ -10,11 +10,14 @@ import Cart from './pages/Cart/Cart.jsx';
 import CheckOut from './pages/CheckOut/CheckOut.jsx';
 import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
+import { Provider } from 'react-redux';
+import { store } from './Featured/store/store.js';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
+    <Provider store={store}>
+    <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/details" element={<Details />} />
@@ -25,6 +28,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
+    </Provider>
+      
     </BrowserRouter>
   </StrictMode>,
 )
