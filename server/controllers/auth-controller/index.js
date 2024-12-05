@@ -90,11 +90,36 @@ const loginUser = async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 }
+const logOutUser= async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).json({ success: false, message: 'No token provided' });
+        }
+
+  
+        let decoded;
+        try {
+            decoded = jwt.verify(token, process.env.JWT_SECRET);
+        } catch (err) {
+            console.error("JWT verification error:", err);
+            return res.status(401).json({ success: false, message: 'Invalid or expired token' });
+        }
+
+       
+
+        return res.status(200).json({ success: true, message: 'Logged out successfully' });
+    } catch (error) {
+        console.error("Logout route error:", error);
+        res.status(500).json({ success: false, message: 'Server error. Please try again later.' });
+    }
+};
 
 
 
 
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logOutUser
 };

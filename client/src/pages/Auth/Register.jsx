@@ -6,7 +6,7 @@ import { useAddUserMutation } from "../../Featured/Auth/authApi";
 
 const Register = () => {
     const [AddUser] = useAddUserMutation();
-    
+
     const [showpassword, setshowpassword] = useState(null)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Register = () => {
         // console.log(firstName, lastName, email, password);
 
         try {
-            await AddUser(data);
+            await AddUser(data).unwrap();
             navigate(from);
         } catch (err) {
             console.log(err.message);
@@ -56,7 +56,7 @@ const Register = () => {
                                 {errors.email && <span className='text-red-500'>Email field is required</span>}
                                 <div className="mb-6 flex p-4 bg-gray-50 rounded">
                                     <input {...register("password", { required: true })} className="w-full text-xs bg-gray-50 outline-none" type={showpassword ? "text" : "password"} placeholder="Enter your password" />
-                                    <button onClick={() => setshowpassword(!showpassword)}>
+                                    <span onClick={() => setshowpassword(!showpassword)}>
 
                                         {showpassword ? <svg className="h-6 w-6 ml-4 my-auto text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -65,7 +65,7 @@ const Register = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>}
-                                    </button>
+                                    </span>
                                 </div>
                                 {errors.password && <span className='text-red-500'>password field is required</span>}
                                 <div className="text-center">

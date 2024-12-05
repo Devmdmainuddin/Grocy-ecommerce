@@ -2,7 +2,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const authApi = createApi({
     reducerPath: 'authApi', // The reducer path for this API slice
-    baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_API_URL}` }), // Base URL from environment variable
+    baseQuery: fetchBaseQuery({ 
+        baseUrl: `${import.meta.env.VITE_API_URL}`,
+
+        prepareHeaders: (headers) => {
+            // const token = JSON.parse(sessionStorage.getItem('accessToken')) || '';
+            const token = JSON.parse(localStorage.getItem('accessToken')) || '';
+            if (token) {
+              headers.set('Authorization', `Bearer ${token}`);
+            }
+            return headers;
+          },
+     }), // Base URL from environment variable
     tagTypes: ['user'], // Tag type for cache management
 
     endpoints: (builder) => ({
@@ -49,32 +60,36 @@ export const authApi = createApi({
         // Add a new user 
 
         addUser: builder.mutation({
-            query: (body) => ({
+            query: (formData) => ({
                 url: `/auth/register/`,
                 method: 'POST',
-                body: {
-                    firstName: body.firstName,
-                    lastName: body.lastName,
-                    email: body.email,
-                    password: body.password,
-                    role: body.role
-                }
+                body: { ...formData, role: 'user' },
+                // body: {
+                //     firstName: body.firstName,
+                //     lastName: body.lastName,
+                //     email: body.email,
+                //     password: body.password,
+                //     role: body.role
+                // }
             }),
             invalidatesTags: [{ type: 'user', id: 'LIST' }],  // Invalidate the list cache after adding
         }),
 
         loginUser: builder.mutation({
-            query: (body) => ({
+            query: (formData) => ({
                 url: `/auth/login/`,
                 method: 'POST',
-                body: {
-                    email: body.email,
-                    password: body.password,
-                }
+                body: formData,
+                // body: {
+                //     email: body.email,
+                //     password: body.password,
+                // }
             }),
             invalidatesTags: [{ type: 'user', id: 'LIST' }],  // Invalidate the list cache after adding
         }),
-
+        checkAuth: builder.query({
+            query: () => '/auth/check',
+          }),
         // Update a user by email  
 
         updateUser: builder.mutation({
@@ -93,11 +108,19 @@ export const authApi = createApi({
             }),
             invalidatesTags: [{ type: 'user', id: 'LIST' }], // Invalidate user list cache
         }),
+        logoutUser: builder.mutation({
+            query: () => ({
+                url: `/auth/logout`,
+                method: 'POST',
+            }),
+            invalidatesTags: [{ type: 'user', id: 'LIST' }],
+        }),
+
 
     }),
 });
 
-export const { useGetUserQuery, useGetUserByEmailQuery, useAddUserMutation,useLoginUserMutation, useGetFilteredUsersQuery, useUpdateUserMutation ,useDeleteUserMutation } = authApi;
+export const { useGetUserQuery, useGetUserByEmailQuery, useAddUserMutation,useLoginUserMutation,useLogoutUserMutation, useGetFilteredUsersQuery, useUpdateUserMutation ,useDeleteUserMutation,useCheckAuthQuery } = authApi;
 
 
 

@@ -5,8 +5,16 @@ import Container from "./Container";
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { useLogoutUserMutation } from "../../Featured/Auth/authApi";
+import Swal from "sweetalert2";
+import { resetAuth } from "../../Featured/Auth/authSlice";
 
 const Navbar = () => {
+    const {user, authenticate } = useSelector((state) => state.auth);
+    const [logoutUser] = useLogoutUserMutation();
+    const dispatch = useDispatch();
+    console.log(user,authenticate);
     const [isOpen, setIsOpen] = useState(false)
     const [accOpen, setAccOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false)
@@ -35,7 +43,31 @@ const Navbar = () => {
         setIsOpen(false);
         setMenuOpen(false);
     }
-
+    const handleLogout = async () => {
+        try {
+            const response = await logoutUser().unwrap();
+            if (response?.success) {
+                localStorage.removeItem('accessToken');
+                dispatch(resetAuth());
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logged out successfully!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                navigate('/login');
+            } else {
+                throw new Error(response?.message || 'Logout failed');
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: "error",
+                title: "Logout Failed",
+                text: error.message,
+            });
+        }
+    };
     return (
         <div>
             <div className="py-6 bg-[#1D3D4D]  ">
@@ -90,6 +122,7 @@ const Navbar = () => {
                             <div className={`w-[260px] z-20 bg-white text-[#1D3D4D] border rounded-sm absolute flex justify-between gap-3 right-0 p-3 transition-all duration-500 ${accOpen ? '-bottom-[100px] visible opacity-100 ' : ' bottom-[92px] invisible opacity-0'}`}>
                              <Link to='/login'><button className="py-3 px-6 border rounded-lg">login</button> </Link>   
                              <Link to=''>  <button className="py-3  px-6 border rounded-lg">my account </button></Link>  
+                             <button onClick={handleLogout} className="btn-logout">Logout</button>
                             </div>
                         </div>
 

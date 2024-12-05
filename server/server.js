@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const productRoutes=require("./routes/product-routes/index")
 const authRoutes = require("./routes/auth-routes/index");
-
+// const jwt = require('jsonwebtoken');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL ;
