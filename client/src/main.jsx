@@ -12,24 +12,26 @@ import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
 import { Provider } from 'react-redux';
 import { store } from './Featured/store/store.js';
+import Dashbord from './pages/Dashbord/Dashbord.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
-    <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="/details" element={<Details />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkOut" element={<CheckOut />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-      </Routes>
-    </Provider>
-      
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkOut" element={<CheckOut />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+          <Route path="/dashbord" element={<Dashbord />} />
+        </Routes>
+      </Provider>
+
     </BrowserRouter>
   </StrictMode>,
 )

@@ -120,9 +120,9 @@ const Navbar = () => {
                             
                             </p>
                             <div className={`w-[260px] z-20 bg-white text-[#1D3D4D] border rounded-sm absolute flex justify-between gap-3 right-0 p-3 transition-all duration-500 ${accOpen ? '-bottom-[100px] visible opacity-100 ' : ' bottom-[92px] invisible opacity-0'}`}>
-                             <Link to='/login'><button className="py-3 px-6 border rounded-lg">login</button> </Link>   
-                             <Link to=''>  <button className="py-3  px-6 border rounded-lg">my account </button></Link>  
-                             <button onClick={handleLogout} className="btn-logout">Logout</button>
+                            {user?<button onClick={handleLogout} className="py-3 px-6 border rounded-lg">Logout</button> : <Link to='/login'><button className="py-3 px-6 border rounded-lg">login</button> </Link>   } 
+                             <Link to='/dashbord'>  <button className="py-3  px-6 border rounded-lg">my account </button></Link>  
+                             
                             </div>
                         </div>
 
