@@ -13,6 +13,10 @@ import Register from './pages/Auth/Register.jsx';
 import { Provider } from 'react-redux';
 import { store } from './Featured/store/store.js';
 import Dashbord from './pages/Dashbord/Dashbord.jsx';
+import AddProduct from './pages/Dashbord/Admin/AddProduct.jsx';
+import ManageProducts from './pages/Dashbord/Admin/ManageProducts.jsx';
+import Brand from './pages/Dashbord/Admin/Brand.jsx';
+import Category from './pages/Dashbord/Admin/Category.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,7 +32,12 @@ createRoot(document.getElementById('root')).render(
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
-          <Route path="/dashbord" element={<Dashbord />} />
+          <Route path="/dashbord" element={<Dashbord />} >
+            <Route path="/dashbord/addProduct" element={<AddProduct />} />
+            <Route path="/dashbord/manageProducts" element={<ManageProducts />} />
+            <Route path="/dashbord/category" element={<Category />} />
+            <Route path="/dashbord/brand" element={<Brand />} />
+          </Route>
         </Routes>
       </Provider>
 

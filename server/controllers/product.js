@@ -26,16 +26,88 @@ const getProductById = async (req, res) => {
   };
   
   // POST: Add a new product
+// const createProduct = async (req, res) => {
+//     const product = req.body;
+
+//     if (req.file) {
+//       const image = {
+//         public_id: `products/${req.file.filename}`, // Example public_id for cloud storage systems
+//         url: `/uploads/products/${req.file.filename}`, // File URL for local storage
+//       };
+//       product.image = [image]; // Add image data to the product
+//     }
+//     try {
+//       const newProduct = new Product(product);
+//       await newProduct.save();
+//       res.status(201).json(newProduct);
+//     } catch (error) {
+//       res.status(400).json({ success: false, message: 'Failed to create product', error });
+//     }
+//   };
 const createProduct = async (req, res) => {
-    const product = req.body;
-    try {
-      const newProduct = new Product(product);
-      await newProduct.save();
-      res.status(201).json(newProduct);
-    } catch (error) {
-      res.status(400).json({ success: false, message: 'Failed to create product', error });
-    }
-  };
+  // const product = req.body;
+  
+
+
+
+
+  try {
+    const {
+      title,
+      descaption,
+      price,
+      discount,
+      dimensions,
+      weight,
+      stock_levels,
+      color,
+      tag01,
+      tag02,
+      tag03,
+      return_policy,
+      warranty_information,
+      availability_status,
+      minimum_order_quantity,
+      shipping_cost,
+  } = req.body;
+  const tags = [tag01, tag02, tag03];
+  const newProduct = new Product({
+    title,
+    descaption,
+    price,
+    discount,
+    dimensions,
+    weight,
+    stock_levels,
+    color,
+    tags,
+    return_policy,
+    warranty_information,
+    availability_status,
+    minimum_order_quantity,
+    shipping_cost,
+    image: req.file.path, 
+});
+console.log(req.file.path);
+await newProduct.save();
+
+res.status(201).json({ success: true, message: 'Product added successfully!',product: newProduct, });
+      // const newProduct = new Product(product);
+      // await newProduct.save();
+      // res.status(201).json({
+      //     success: true,
+      //     message: "Product created successfully",
+      //     product: newProduct,
+      // });
+  } catch (error) {
+     
+      res.status(400).json({
+          success: false,
+          message: "Failed to create product",
+          error: error.message || error,
+      });
+  }
+};
 
 // PATCH: Update a product by ID
 const updateProduct = async (req, res) => {

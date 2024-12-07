@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/shared/Navbar";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useLogoutUserMutation } from "../../Featured/Auth/authApi";
 import Container from "../../components/shared/Container";
@@ -10,7 +10,7 @@ import { FaBars } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 
 const Dashbord = () => {
-   
+
     const { user } = useSelector((state) => state.auth);
     const [logoutUser] = useLogoutUserMutation();
     const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const Dashbord = () => {
         }
         resize()
         window.addEventListener("resize", resize)
-       
+
     }, [])
     return (
         <div>
@@ -76,25 +76,26 @@ const Dashbord = () => {
                             <p className=" " onClick={() => setAccOpen(!accOpen)}><span className="title">My Account</span>
 
                             </p>
-                            
+
                         </div>
 
 
 
                         <div className={` bg-slate-200 flex  justify-between  fixed top-[92px] z-20 right-0 transition-transform duration-500 ${accOpen ? "translate-x-0" : "translate-x-full"}`}>
-                                {user ? <button onClick={handleLogout} className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white   hover:bg-[#00B881]  transition-all duration-500">Logout</button> : <Link to='/login'><button className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white   hover:bg-[#00B881]  transition-all duration-500">login</button> </Link>}
-                                <Link to='/dashbord'>  <button className="flex-1 text-center text-[15px] font-bold leading-5 capitalize bg-[#00B881] py-2.5 px-[22px] text-white   hover:bg-[#184363]  transition-all duration-500 ">my account </button></Link>
+                            {user ? <button onClick={handleLogout} className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white   hover:bg-[#00B881]  transition-all duration-500">Logout</button> : <Link to='/login'><button className=" text-center text-[15px] font-bold leading-5 capitalize bg-[#184363] py-2.5 px-[22px] text-white   hover:bg-[#00B881]  transition-all duration-500">login</button> </Link>}
+                            <Link to='/dashbord'>  <button className="flex-1 text-center text-[15px] font-bold leading-5 capitalize bg-[#00B881] py-2.5 px-[22px] text-white   hover:bg-[#184363]  transition-all duration-500 ">my account </button></Link>
 
-                            </div>
+                        </div>
                     </div>
                 </Container>
             </div>
-            <div className="flex gap-6 ">
+            <div className="flex  m-0 p-0 w-full">
                 <aside>
-                  <Sidebar menuOpen={menuOpen}/>
+                    <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
                 </aside>
-                <main className={`transition-all duration-500 md:ml-0 ${menuOpen ? "ml-[320px] " : "ml-0"}`}>
-                    <h2>deshbord</h2>
+                <main className={`flex-1  transition-all duration-500 md:ml-0 ${menuOpen ? " " : "ml-0"}`}>
+
+                    <Outlet></Outlet>
                 </main>
             </div>
         </div>

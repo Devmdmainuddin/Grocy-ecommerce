@@ -4,7 +4,33 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const productRoutes=require("./routes/product-routes/index")
 const authRoutes = require("./routes/auth-routes/index");
-// const jwt = require('jsonwebtoken');
+const multer  = require('multer')
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './uploads/'); 
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); 
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+    const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+    if (allowedMimeTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only JPEG, PNG, and JPG are allowed!'), false);
+    }
+  };
+  const upload = multer({ 
+    storage: storage,
+    limits: { fileSize: 1024 * 1024 * 5 }, 
+    fileFilter: fileFilter,
+  });
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL ;
@@ -36,8 +62,14 @@ app.post('/jwt', async (req, res) => {
         res.status(500).send({ success: false, message: 'Internal server error.' });
     }
 });
+
+
+
 app.use('/auth', authRoutes);
 app.use('/product', productRoutes);
+app.post('/profile', upload.single('brandImage'), function (req, res) {
+res.send(req.file);
+  })
 
 app.use((err, req, res, next) => {
     console.log(err.stack);

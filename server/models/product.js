@@ -1,74 +1,28 @@
 const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: [true, "Please enter your product title!"],
-    },
-    description: {
-        type: String,
-        required: [true, "Please enter your product description!"],
-    },
-    category: {
-        type: String,
-        required: [true, "Please enter your product category!"],
-    },
-    brand: {
-        type: String,
-        required: [true, "Please enter your product brand!"],
-    },
-    tags: {
-        type: String,
-    },
-    price: {
-        type: Number,
-    },
-    discount: {
-        type: Number,
-        required: [true, "Please enter your product price!"],
-    },
-    stock: {
-        type: Number,
-        required: [true, "Please enter your product stock!"],
-    },
-    // image: [
-    //     {
-    //         public_id: {
-    //             type: String,
-    //             required: true,
-    //         },
-    //         url: {
-    //             type: String,
-    //             required: true,
-    //         },
-    //     },
-    // ],
-    warranty_information: {
-        type: String,
-        required: [true, "Please enter your product warranty_information!"],
-    },
-    dimensions: {
-        type: String,
-        required: [true, "Please enter your product dimensions!"],
-    },
-    color: {
-        type: String,
-        required: [true, "Please enter your product color!"],
-    },
-    weight: {
-        type: String,
-        required: [true, "Please enter your product weight!"],
-    },
-    availability_status: {
-        type: String,
-    },
-    return_policy: {
-        type: String,
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now(),
-    }
-})
+    title: { type: String, required: true },
+    descaption: { type: String, required: true },
+    price: { type: Number, required: true },
+    discount: { type: Number, required: true },
+    dimensions: { type: String, required: true },
+    weight: { type: String, required: true },
+    stock_levels: { type: Number, required: true },
+    image: { type: String, required: true }, // Will store the image URL
+    color: { type: String, required: true },
+    tags: [String],
+    return_policy: { type: String, required: true },
+    warranty_information: { type: String, required: true },
+    availability_status: { type: String, required: true },
+    minimum_order_quantity: { type: Number, required: true },
+    shipping_cost: { type: Number, required: true },
+
+    // tag01: { type: String, required: true, },
+    // tag02: {type: String, required: true,},
+    // tag03: {type: String,required: true,},
+
+}, {
+    timestamps: true, // Automatically adds createdAt and updatedAt fields
+});
 
 module.exports = mongoose.model("Product", ProductSchema);
